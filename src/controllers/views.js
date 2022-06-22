@@ -12,6 +12,12 @@ const renderHomePage = (req, res) => {
 	return res.sendFile(filePath);
 };
 
+const renderNotePage = (req, res) => {
+	const filePath = path.join(__dirname, "../../public/notes.html");
+	return res.sendFile(filePath);
+};
+
 module.exports = {
 	renderHomePage,
+	renderNotePage,
 };

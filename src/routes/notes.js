@@ -5,11 +5,9 @@ const {
 } = require("../controllers/notes");
 
 const router = Router();
-router.get;
-router.get;
-router.post;
-// router.put; - not sure if this is needed
-router.delete;
+router.get("/", getNotes);
+router.delete("/", deleteNote);
+router.post("/", createNote);
 
 module.exports = router;
 
