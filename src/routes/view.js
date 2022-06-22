@@ -5,11 +5,10 @@ const { renderHomePage, renderNotePage } = require("../controllers/views");
 
 const router = Router();
 
-router.get("/", renderHomePage);
 router.get("/notes", renderNotePage);
+router.get("/", renderHomePage);
 
 module.exports = router;
 
 // get /
-
 //  get note /

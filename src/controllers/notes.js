@@ -1,60 +1,63 @@
 const { readDataFromFile, writeDataToFile } = require("../utils/fileReadWrite");
+const { v4: uuidv4 } = require("uuid");
 
-//  get notes ()
-const getNotes = (req, res) => {
-	// get all items from file
+// Create Note
+const createNote = (req, res) => {
+	console.log(req.body);
+	// get the payload from req body
+	const { title, text } = req.body;
+
+	// create uuid
+	const id = uuidv4();
+
+	// create the note object
+	const note = {
+		id,
+		title,
+		text,
+	};
+
+	// get all notes from file
 	const notes = readDataFromFile("db");
 
-	// send all items as response
+	// push new note to notes
+	notes.push(note);
+
+	// write all notes to file
+	writeDataToFile("db", notes);
+
+	// send response
+	return res.json({
+		message: "Successfully created a new note",
+	});
+};
+
+//  get notes
+const getNotes = (req, res) => {
+	console.log("entered getNotes in notes controller");
+	// get all notes from file
+	const notes = readDataFromFile("db");
+	console.log("getnotesabc", notes);
+	// send all notes as response
 	return res.json(notes);
 };
 
 // Delete note
 const deleteNote = (req, res) => {
 	// get id from req
-	const { itemId } = req.params;
+	const { id } = req.params;
 
-	// get all items from file
-	const { items } = readDataFromFile("db");
+	// get all notes from file
+	const notes = readDataFromFile("db");
 
-	// remove item from file
-	const filteredItems = items.filter((item) => item.id !== itemId);
+	// remove note from file
+	const filterednotes = notes.filter((note) => note.id !== id);
 
-	writeDataToFile("items", { items: filteredItems });
+	writeDataToFile("db", filterednotes);
 
 	// send response
 	return res.json({
 		message: "Successfully deleted note",
-	});
-};
-
-// Create Note
-const createNote = (req, res) => {
-	console.log(req.body);
-	// get the payload from req body
-	const { name } = req.body;
-
-	// create uuid
-	// const id = uuidv4();
-
-	// create the item object
-	const note = {
-		title,
-		text,
-	};
-
-	// get all items from file
-	const data = readDataFromFile("db");
-
-	// push new item to items
-	data.items.push(note);
-
-	// write all items to file
-	writeDataToFile("db", data);
-
-	// send response
-	return res.json({
-		message: "Successfully created a new note",
 	});
 };
 

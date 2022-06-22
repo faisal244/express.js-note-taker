@@ -3,7 +3,7 @@ const notes = require("./notes");
 
 const router = Router();
 
-router.use("./notes", notes);
+router.use("/notes", notes);
 
 module.exports = router;
 
