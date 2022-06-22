@@ -1,14 +1,14 @@
 const { Router } = require("express");
 
-const {
-	// functions from views.js controller file can be destructured and listed here
-} = require("./controllers/view");
+const { renderHomePage } = require("../controllers/views");
+// functions from views.js controller file can be destructured and listed here
 
 const router = Router();
 
-router.get("/", getAndRenderNotes);
-router.get("/", renderActiveNote);
-router.get("/", renderNoteList);
+// router.get("/notes", getAndRenderNotes);
+router.get("/", renderHomePage);
+
+module.exports = router;
 
 // get /
 
