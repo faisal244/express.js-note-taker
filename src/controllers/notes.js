@@ -1,9 +1,9 @@
+// Importing dependancies
 const { readDataFromFile, writeDataToFile } = require("../utils/fileReadWrite");
 const { v4: uuidv4 } = require("uuid");
 
-// Create Note
+// Create Note function
 const createNote = (req, res) => {
-	console.log(req.body);
 	// get the payload from req body
 	const { title, text } = req.body;
 
@@ -32,17 +32,16 @@ const createNote = (req, res) => {
 	});
 };
 
-//  get notes
+//  get notes function
 const getNotes = (req, res) => {
-	console.log("entered getNotes in notes controller");
 	// get all notes from file
 	const notes = readDataFromFile("db");
-	console.log("getnotesabc", notes);
+
 	// send all notes as response
 	return res.json(notes);
 };
 
-// Delete note
+// Delete note function
 const deleteNote = (req, res) => {
 	// get id from req
 	const { id } = req.params;
@@ -61,4 +60,5 @@ const deleteNote = (req, res) => {
 	});
 };
 
+// Export of functions
 module.exports = { getNotes, deleteNote, createNote };
