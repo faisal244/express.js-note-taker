@@ -10,9 +10,6 @@ const renderHomePage = (req, res) => {
 		//  use res.sendFile() - pass in the path of the file you want to send over the server as a response
 		return res.sendFile(filePath);
 	} catch (error) {
-		// console.log(
-		// 	`[ERROR]: Server error - Failed to load homepage | ${error.message}`
-		// );
 		return res.status(404).json({
 			success: false,
 			error: "Server error - Failed to load Homepage",
@@ -29,9 +26,6 @@ const renderNotePage = (req, res) => {
 		//  use res.sendFile() - pass in the path of the file you want to send over the server as a response
 		return res.sendFile(filePath);
 	} catch (error) {
-		// console.log(
-		// 	`[ERROR]: Server error - Failed to load notes page | ${error.message}`
-		// );
 		return res.status(404).json({
 			success: false,
 			error: "Failed to load notes page",

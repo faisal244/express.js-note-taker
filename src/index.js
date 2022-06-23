@@ -18,14 +18,10 @@ const init = async () => {
 			console.log(`server running on http://localhost:${PORT}`);
 		});
 	} catch (error) {
-		console.log(`[ERROR]: Failed to start server | ${error.message}`);
-
-		return res
-			.status(404)
-			.JSON({
-				success: false,
-				error: "Something went wrong - server could not start",
-			});
+		return res.status(404).JSON({
+			success: false,
+			error: "Something went wrong -  Failed to start server",
+		});
 	}
 };
 
