@@ -32,9 +32,9 @@ const createNote = (req, res) => {
 			message: "Successfully created a new note",
 		});
 	} catch (error) {
-		console.log(
-			`[ERROR]: Server error - Could not create note | ${error.message}`
-		);
+		// console.log(
+		// 	`[ERROR]: Server error - Could not create note | ${error.message}`
+		// );
 		return res
 			.status(500)
 			.json({ success: false, error: "Server error - Could not create note" });
@@ -50,9 +50,9 @@ const getNotes = (req, res) => {
 		// send all notes as response
 		return res.json(notes);
 	} catch (error) {
-		console.log(
-			`[ERROR]: Server error - Could not fetch notes from database | ${error.message}`
-		);
+		// console.log(
+		// 	`[ERROR]: Server error - Could not fetch notes from database | ${error.message}`
+		// );
 		return res.status(500).json({
 			success: false,
 			error: "Server error - Could not fetch notes from database",
@@ -79,9 +79,9 @@ const deleteNote = (req, res) => {
 			message: "Successfully deleted note",
 		});
 	} catch (error) {
-		console.log(
-			`[ERROR]: Server error - Could not delete note | ${error.message}`
-		);
+		// console.log(
+		// 	`[ERROR]: Server error - Could not delete note | ${error.message}`
+		// );
 		return res.status(500).json({
 			success: false,
 			error: "Server error - Could not delete note from database",
