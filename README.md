@@ -96,7 +96,7 @@ Alternatively, please navigate to http://localhost:4000/ in your browser to use 
 
 This application has also been deployed to Heroku cloud Infrastructure and can be accessed directly and immediately by clicking the following link:
 
-https://frozen-stream-53119.herokuapp.com/
+https://express-js-note-taker244.herokuapp.com/
 
 ## Contact me
 
