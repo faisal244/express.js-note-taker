@@ -5,6 +5,7 @@ const routes = require("./routes");
 
 const init = async () => {
 	try {
+		// Defining the port to be used by Heroku, and a fallback for use on a local machine
 		const PORT = process.env.PORT || 4000;
 
 		const app = express();
