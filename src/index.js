@@ -5,10 +5,10 @@ const routes = require("./routes");
 
 const init = async () => {
 	try {
-		const PORT = (process.env.PORT = 4000);
+		const PORT = process.env.PORT || 4000;
 
 		const app = express();
-
+		// Declaring middlewares to be used
 		app.use(express.json());
 		app.use(express.urlencoded({ extended: true }));
 		app.use(express.static(path.join(__dirname, "../public")));
@@ -18,6 +18,7 @@ const init = async () => {
 			console.log(`server running on http://localhost:${PORT}`);
 		});
 	} catch (error) {
+		console.log(`[ERROR]: Failed to start server | ${error.message}`);
 		return res.status(404).JSON({
 			success: false,
 			error: "Something went wrong -  Failed to start server",
